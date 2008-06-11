@@ -1,3 +1,7 @@
-def application(environ, start_response):
-	start_response('200 OK', [('Content-type', 'text/html'), ('X-Foo', 'bar')])
-	return ['Hello World!<br><img src="wsgi-snake.jpg">']
+import os, sys
+sys.path.append('/Users/kwe/Sites')
+os.environ['DJANGO_SETTINGS_MODULE'] = 'wally.settings'
+
+import django.core.handlers.wsgi
+
+application = django.core.handlers.wsgi.WSGIHandler()
