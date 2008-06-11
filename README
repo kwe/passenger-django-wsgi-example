@@ -1,0 +1,30 @@
+A really simple example to show how to use Phusion Passenger's to server WSGI Python apps (including Django!)
+
+Two branches..
+
+1. master - a basic WSGI python app, taken largely from Phusion's test suite
+2. django - a very (very!) basic django blog app, that runs fine under Phusion Passenger
+
+Apache Config
+=============
+
+Just...
+
+<VirtualHost *:80>
+   ServerName wally.local
+   DocumentRoot /Users/kwe/Sites/wally/public
+</VirtualHost>
+
+Looks like Phusion Passenger looks for a script called 'passenger_wsgi.py'. Checkout the django branch for a generic WSGI script to run a Django app.
+
+Basic folder layout for app is..
+
+----------------------
+Sites/wally
+  |
+  +-- passenger_wsgi.py
+  |
+  +-- public/
+  |
+  +-- tmp/
+----------------------
